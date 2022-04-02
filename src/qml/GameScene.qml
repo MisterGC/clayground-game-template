@@ -1,13 +1,13 @@
 // (c) serein.pfeiffer@gmail.com - zlib license, see "LICENSE" file
 
-import QtQuick 2.12
-import QtQuick.Controls 2.15
-import QtMultimedia 5.12
-import QtQuick.Particles 2.0
-import Box2D 2.0
-import Clayground.GameController 1.0
-import Clayground.World 1.0
-import Clayground.Behavior 1.0
+import QtQuick
+import QtQuick.Controls
+import QtMultimedia
+import QtQuick.Particles
+import Box2D
+import Clayground.GameController
+import Clayground.World
+import Clayground.Behavior
 
 import "details"
 

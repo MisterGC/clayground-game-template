@@ -1,9 +1,9 @@
 // (c) serein.pfeiffer@gmail.com - zlib license, see "LICENSE" file
 
-import QtQuick 2.12
-import QtQuick.Controls 2.15
-import QtQuick.Window 2.15
-import QtMultimedia 5.12
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Window
+import QtMultimedia
 
 import "details"
 

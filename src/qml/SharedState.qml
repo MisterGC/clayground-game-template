@@ -1,7 +1,7 @@
-import QtQuick 2.12
-import QtQuick.LocalStorage 2.12
-import Clayground.Common 1.0
-import Clayground.Storage 1.0
+import QtQuick
+import QtQuick.LocalStorage
+import Clayground.Common
+import Clayground.Storage
 
 import "details"
 

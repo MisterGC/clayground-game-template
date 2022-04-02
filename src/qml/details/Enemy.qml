@@ -1,10 +1,10 @@
 // (c) serein.pfeiffer@gmail.com - zlib license, see "LICENSE" file
 
-import QtQuick 2.15
-import QtMultimedia 5.12
-import Box2D 2.0
-import Clayground.Physics 1.0
-import Clayground.Svg 1.0
+import QtQuick
+import QtMultimedia
+import Box2D
+import Clayground.Physics
+import Clayground.Svg
 
 LivingEntity
 {

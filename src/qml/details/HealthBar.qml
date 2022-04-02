@@ -1,8 +1,8 @@
 // (c) serein.pfeiffer@gmail.com - zlib license, see "LICENSE" file
 
-import QtQuick 2.15
-import Clayground.Physics 1.0
-import Clayground.Svg 1.0
+import QtQuick
+import Clayground.Physics
+import Clayground.Svg
 
 IconBar {
     id: healthBar

@@ -1,8 +1,8 @@
 // (c) serein.pfeiffer@gmail.com - zlib license, see "LICENSE" file
 
-import QtQuick 2.12
-import Clayground.Svg 1.0
-import Clayground.Common 1.0
+import QtQuick
+import Clayground.Svg
+import Clayground.Common
 
 import "details"
 
