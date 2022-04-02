@@ -1,5 +1,5 @@
-cmake_minimum_required (VERSION 3.5.0 FATAL_ERROR)
-project (MyGame VERSION 2021.1)
+cmake_minimum_required (VERSION 3.16.0)
+project (MyGame VERSION 2022.1)
 
 # Common dirs for all produced bin artifacts 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -10,17 +10,23 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt5 5.15 COMPONENTS Core Quick Multimedia Sql REQUIRED)
-qt5_add_big_resources(GAME_ASSETS src/scene/scene.qrc src/sound/sound.qrc src/visual/visual.qrc)
-set(PROJECT_SOURCES src/main.cpp src/Sandbox.qml src/qml/qml.qrc ${GAME_ASSETS})
+find_package(Qt6 COMPONENTS Core Quick Multimedia Sql REQUIRED)
+qt_add_big_resources(GAME_ASSETS src/scene/scene.qrc src/sound/sound.qrc src/visual/visual.qrc)
+set(PROJECT_SOURCES src/main.cpp src/Sandbox.qml  ${GAME_ASSETS} src/qml/qml.qrc)
 
-add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
+qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+
+#qt_add_qml_module(${PROJECT_NAME}
+#    URI ${PROJECT_NAME}
+#    VERSION   1.0
+#    RESOURCES src/qml/qml.qrc)
+#qt_import_qml_plugins(${PROJECT_NAME})
 
 target_link_libraries(${PROJECT_NAME}
 PRIVATE
-  Qt5::Core
-  Qt5::Quick
+  Qt::Core
+  Qt::Quick
 )
 
 add_subdirectory (dep/clayground)
