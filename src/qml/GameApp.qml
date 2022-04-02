@@ -30,12 +30,12 @@ Rectangle
     Component {id: endingScreenComp; EndingScreen{}}
     AssetProvider { id: assets }
 
-    Audio {
+    MediaPlayer {
         id: gameMusic
-        audioRole: Audio.MusicRole
         property string sound: ""
-        muted: gameState.muteMusic
         source: assets.sound(sound)
+        property alias volume: audioOut.volume
+        audioOutput: AudioOutput {id: audioOut; muted: gameState.muteMusic }
         function _play(snd) {stop(); volume = 1; sound=snd; play();}
         function playLooped(snd) {loops = SoundEffect.Infinite; _play(snd);}
         function playOneTime(snd){loops = 1; _play(snd);}

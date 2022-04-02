@@ -8,45 +8,14 @@
 //Activate if you want to do QML profiling
 //#include <QQmlDebuggingEnabler>
 
-#if defined(CLAY_STATIC_PLUGIN)
-    Q_IMPORT_PLUGIN(ClayPhysicsPlugin);
-    Q_IMPORT_PLUGIN(ClayCanvasPlugin);
-    Q_IMPORT_PLUGIN(ClayCommonPlugin);
-    Q_IMPORT_PLUGIN(SvgPlugin);
-    Q_IMPORT_PLUGIN(ClayWorldPlugin);
-    Q_IMPORT_PLUGIN(ClayGameCtrlPlugin);
-    Q_IMPORT_PLUGIN(ClayStoragePlugin);
-    Q_IMPORT_PLUGIN(Box2DPlugin);
-
-    #define REGISTER_TYPES(class_name, plugin_name) \
-        qobject_cast<QQmlExtensionPlugin*>(qt_static_plugin_##class_name().instance()) \
-            ->registerTypes(plugin_name);
-#endif
 
 int main(int argc, char *argv[])
 {
-#if defined(CLAY_STATIC_PLUGIN)
-    REGISTER_TYPES(ClayCommonPlugin, "Clayground.Common");
-    REGISTER_TYPES(SvgPlugin, "Clayground.Svg");
-    REGISTER_TYPES(ClayWorldPlugin, "Clayground.World");
-    REGISTER_TYPES(ClayGameCtrlPlugin, "Clayground.GameController");
-    REGISTER_TYPES(ClayCanvasPlugin, "Clayground.Canvas");
-    REGISTER_TYPES(ClayPhysicsPlugin, "Clayground.Physics");
-    REGISTER_TYPES(ClayStoragePlugin, "Clayground.Storage");
-    REGISTER_TYPES(Box2DPlugin, "Box2D");
-#endif
-
     //Activate if you want to do QML profiling
     //QQmlDebuggingEnabler enabler;
 
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
-
-#if defined(CLAY_STATIC_PLUGIN)
-    qobject_cast<QQmlExtensionPlugin*>(qt_static_plugin_SvgPlugin().instance()) \
-        ->initializeEngine(&engine, "Clayground.Svg");
-#endif
 
     auto runAsAutoTest = QGuiApplication::platformName() == "minimal";
     if (runAsAutoTest) {

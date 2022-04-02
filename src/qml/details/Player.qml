@@ -5,7 +5,6 @@ import QtMultimedia
 import Box2D
 import Clayground.Physics
 import Clayground.Svg
-import Clayground.Common
 
 LivingEntity
 {
@@ -14,9 +13,9 @@ LivingEntity
     property var enemy: null
     Component.onCompleted: {
         body.addFixture(areaOfDamage.createObject(player,{}));
-        ClayPhysics.connectOnEntered(fixtures[0], _onCollision)
-        ClayPhysics.connectOnEntered(fixtures[1], _onEnemySpotted)
-        ClayPhysics.connectOnLeft(fixtures[1], _onEnemyLost)
+        PhysicsUtils.connectOnEntered(fixtures[0], _onCollision)
+        PhysicsUtils.connectOnEntered(fixtures[1], _onEnemySpotted)
+        PhysicsUtils.connectOnLeft(fixtures[1], _onEnemyLost)
     }
     function _onCollision(entity) { if (entity instanceof Enemy) health--;}
     function _onEnemySpotted(entity) {if (entity instanceof Enemy) enemy = entity;}

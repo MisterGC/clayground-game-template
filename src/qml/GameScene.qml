@@ -82,8 +82,7 @@ ClayWorld {
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-    onMapEntityCreated: {
-        console.log("Created " + obj);
+    onMapEntityCreated: (obj) => {
         if (obj instanceof Player) {
             gameScene.player = obj;
             obj.z = 500;
